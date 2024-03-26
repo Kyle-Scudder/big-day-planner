@@ -6,15 +6,13 @@ export default function Admin() {
   const guests: Guest[] = data.data ?? [];
 
   return (
-    <main className="flex justify-center h-screen">
-      <div className="w-full h-full md:max-w-2xl border-x border-slate-400">
-        <div>Admin</div>
-        <div>
-          {guests.map((guest: Guest) => (
-            <div key={guest.id}>{guest.name}</div>
-            ))}
-        </div>
+    <div>
+      <div>Admin</div>
+      <div>
+        {guests.map((guest: Guest) => (
+          <div key={guest.id}>{guest.name}</div>
+          ))}
       </div>
-    </main>
+    </div>
   );
 }
