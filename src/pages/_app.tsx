@@ -5,7 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
-import TopBar from "~/components/topbar";
+import TopBar from "~/components/top-bar";
 
 const inter = Inter({
   subsets: ["latin"],
