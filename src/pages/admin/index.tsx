@@ -1,16 +1,16 @@
 import React, { type ReactElement } from "react";
 import { type Guest } from "@prisma/client";
-import LoadingSpinner from "~/components/loading-spinner";
+import LoadingPage from "~/components/loading-page";
 import NoData from "~/components/no-data";
 import { api } from "~/utils/api";
 import Layout from "~/components/layout";
 
 export default function Admin() {
-  const { data, isLoading } = api.guest.getAll.useQuery();
+  const { data, isLoading: guestsLoading } = api.guest.getAll.useQuery();
 
-  if (isLoading) return <NoData />;
-
-  if (!data) return <LoadingSpinner />;
+  if (guestsLoading) return <LoadingPage />;
+  
+  if (!data) return <NoData />;
 
   return (
     <div>

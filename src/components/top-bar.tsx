@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 
 const CreateGuestWizard = () => {
   const { user } = useUser();
@@ -9,7 +9,7 @@ const CreateGuestWizard = () => {
 
   return (
     <div className='flex'>
-      <Image src={user.imageUrl} alt="Profile image" className='w-14  h-14 rounded-full' />
+      <Image src={user.imageUrl} width={16} height={16} alt="Profile image" className='w-14  h-14 rounded-full' />
     </div>
   );
 }
@@ -23,6 +23,7 @@ const TopBar = () => {
           <SignInButton />
         </div>
       )}
+      <SignOutButton />
       {user.isSignedIn && <CreateGuestWizard />}
     </div>
   )
