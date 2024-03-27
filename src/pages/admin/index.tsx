@@ -1,9 +1,11 @@
 import { type Guest } from "@prisma/client";
+import LoadingSpinner from "~/components/loading-spinner";
 import { api } from "~/utils/api";
 
 export default function Admin() {
-  const data = api.guest.getAll.useQuery();
-  const guests: Guest[] = data.data ?? [];
+  const { data, isLoading } = api.guest.getAll.useQuery();
+
+  if (!data) return <LoadingSpinner />;
 
   return (
     <div>
