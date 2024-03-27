@@ -1,7 +1,9 @@
+import React, { type ReactElement } from "react";
 import { type Guest } from "@prisma/client";
 import LoadingSpinner from "~/components/loading-spinner";
 import NoData from "~/components/no-data";
 import { api } from "~/utils/api";
+import Layout from "~/components/layout";
 
 export default function Admin() {
   const { data, isLoading } = api.guest.getAll.useQuery();
@@ -22,4 +24,11 @@ export default function Admin() {
       </div>
     </div>
   );
+}
+Admin.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
 }
