@@ -1,13 +1,22 @@
-import { type AppType } from "next/app";
-
-import { api } from "~/utils/api";
+import type { AppProps } from 'next/app'
+import { Fragment } from 'react'
+import type { Page } from '../types/page'
+import { api } from '~/utils/api'
 
 import "~/styles/globals.css";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  const getLayout = Component.getLayout ?? ((page) => page)
- 
-  return getLayout(<Component {...pageProps} />)
-};
+type Props = AppProps & {
+  Component: Page
+}
+const MyApp = ({ Component, pageProps }: Props) => {
+  const getLayout = Component.getLayout ?? (page => page)
+  const Layout = Component.layout ?? Fragment
+
+  return (
+    <Layout>
+      {getLayout(<Component {...pageProps} />)}
+    </Layout>
+  )
+}
 
 export default api.withTRPC(MyApp);
