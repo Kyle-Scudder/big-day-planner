@@ -1,8 +1,8 @@
-import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { z } from 'zod'
+import { createTRPCRouter, publicProcedure } from '../trpc'
 
 export const mainRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.db.main.findMany();
-  }),
-});
+    return ctx.db.main.findMany()
+  })
+})
