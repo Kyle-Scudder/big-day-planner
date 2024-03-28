@@ -4,7 +4,7 @@ import SiteTitle from './site-title'
 
 const TopBar = () => {
   return (
-    <section className='border-slate-400 p-4 w-full flex justify-between'>
+    <section className="border-slate-400 p-4 w-full flex justify-between">
       <div className="flex-row items-center">
         <SiteTitle />
       </div>
