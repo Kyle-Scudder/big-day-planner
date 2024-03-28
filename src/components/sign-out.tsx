@@ -7,14 +7,14 @@ export default function Logout() {
   return (
     <SignedIn>
       <SignOutButton signOutCallback={() => router.push('/sign-in')}>
-        <div className="flex cursor-pointer gap-4 justify-end">
+        <div className='flex align-middle cursor-pointer'>
           <IconLogout
             size={24}
             className="text-dark-1 dark:text-light-1"
             stroke={2}
             strokeLinejoin="miter"
           />
-          <p className="text-dark-2 dark:text-light-2 max-lg:hidden font-black">
+          <p className="text-dark-2 dark:text-light-2 max-lg:hidden font-black pl-3">
             Sign Out
           </p>
         </div>
